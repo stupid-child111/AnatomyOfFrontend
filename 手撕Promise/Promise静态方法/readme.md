@@ -1,0 +1,11 @@
+ - Promise.resolve(data)  直接返回一个完成状态的任务
+ - Promise.reject(reason)  直接返回一个拒绝状态的任务
+
+ - Promise.all(任务数组)
+   -   一个影响所有
+ - Promise.any(任务数组)
+   -   只要有一个成功就成功,全部失败就失败 
+ - Promise.allSettled(任务数组)
+   -   所有已经拥有状态的结果  
+ - Promise.race(任务数组)
+   -   使用最先拥有状态的任务
