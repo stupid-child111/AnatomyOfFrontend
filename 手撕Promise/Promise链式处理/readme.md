@@ -1,0 +1,2 @@
+- Promsie链式处理
+  - .catch(onRejected) = .then(null,onRejected)
