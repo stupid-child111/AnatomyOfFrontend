@@ -1,10 +1,10 @@
-Promise.myAll = function (proms) {
+Promise.myAll = function (pros) {
     return new Promise((resolve, reject) => {
         try {
             const results = [];
             let count = 0;
             let fulfilledCount = 0;
-            for (const p of proms) {
+            for (const p of pros) {
                 let i = count;
                 count++;
                 Promise.resolve(p).then((data) => {
@@ -13,12 +13,16 @@ Promise.myAll = function (proms) {
                     if (fulfilledCount === count) {
                         resolve(results);
                     }
-                }, reject)
+                })
+            }
+            if (count === 0) {
+                resolve(results)
             }
         } catch (error) {
-            reject(error);
+            reject(error)
             console.log(error)
         }
+
     })
 }
 
@@ -30,23 +34,23 @@ Promise.myAll = function (proms) {
 // })
 
 const pro1 = null;
-const pro2 = new Promise((resolve,reject) => {
+const pro2 = new Promise((resolve) => {
     setTimeout(() => {
         resolve(111)
     }, 1000);
 })
 
 
-const pro3 = new Promise((resolve,reject) => {
+const pro3 = new Promise((resolve, reject) => {
     resolve(3)
 })
 
-Promise.myAll([pro1,pro2,pro3])
-.then(
-    (data) => {
-        console.log(data)
-    },
-    (reason) => {
-        console.log(reason)
-    }
-)
+Promise.myAll([pro1, pro2, pro3])
+    .then(
+        (data) => {
+            console.log(data)
+        },
+        (reason) => {
+            console.log(reason)
+        }
+    )
