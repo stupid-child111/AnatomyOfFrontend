@@ -13,7 +13,7 @@ Promise.myAll = function (pros) {
                     if (fulfilledCount === count) {
                         resolve(results);
                     }
-                })
+                }, reject)
             }
             if (count === 0) {
                 resolve(results)
@@ -25,6 +25,9 @@ Promise.myAll = function (pros) {
 
     })
 }
+
+
+
 
 
 // const pro1 = new Promise((resolve,reject) => {
