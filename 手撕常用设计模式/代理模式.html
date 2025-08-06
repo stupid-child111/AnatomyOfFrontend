@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代理模式</title>
+</head>
+<body>
+    <h1>缓存代理</h1>
+    <input type="text" class="query" placeholder="请输入查询的英雄名字">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const cache = {};
+        async function search(pname){
+            if(!cache[pname]){
+                const res  = await axios({
+                    // url:"https://pvp.qq.com/webplat/info/news_version3/15592/18024/23901/24397/24398/m17330/list_1.shtml",
+                    url:"http://hmajax.itheima.net/api/city",
+                    params:{
+                        pname
+                    }
+                })
+                cache[pname] = res.data.list;
+            }
+            return cache[pname]
+        }
+
+        document.querySelector(".query").addEventListener("keyup",async function(e){
+            if(e.keyCode === 13)//enter
+            {
+                const hero = await search(this.value)
+                console.log(hero)
+            }
+        })
+    </script>
+</body>
+</html>
