@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "koa": "^3.0.1",
+    "nodemon": "^3.1.10",
+    "vue": "^3.5.18"
+  },
+  "name": "myvite",
+  "version": "1.0.0",
+  "description": "- 返回宿主页\r - js加载和裸模块路径重写\r - 裸模块加载\r - 解析SFC\r - 代码生成\r - 模板编译",
+  "main": "index.js",
+  "scripts": {
+    "dev": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
