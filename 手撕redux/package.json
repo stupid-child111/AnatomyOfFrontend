@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "redux": "^5.0.1"
+  }
+}
