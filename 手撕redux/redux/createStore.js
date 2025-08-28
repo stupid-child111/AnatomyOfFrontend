@@ -1,23 +1,5 @@
-/**
- * 判断对象是否是平面对象
- * @param {*} obj 
- */
-function isPlainObject(obj) {
-    // if(typeof obj !== Object)
-    if (typeof obj !== "object") {
-        return false;
-    }
-    // return obj.__proto__ === Object.prototype
-    return Object.getPrototypeOf(obj) === Object.prototype
-}
+import ActionTypes from "./utils/ActionTypes";
 
-/**
- * 得到一个指定长度的随机字符串
- * @param {*} length 
- */
-function getRandom(length) {
-    return Math.random().toString(36).slice(2, length + 2).split("").join(".")
-}
 
 
 /**
@@ -57,7 +39,7 @@ export default function (reducer, defaultState) {
     function subscribe(listener) {
         listeners.push(listener)
         //返回取消监听的函数
-        const isRemove  = false;
+        let isRemove  = false;
         return function(){
             if(isRemove){
                 return
@@ -70,7 +52,7 @@ export default function (reducer, defaultState) {
     }
     //创建仓库时,需要分发一次初始的action
     dispatch({
-        type: `@@redux/INIT${getRandom(7)}`
+        type: ActionTypes.INIT()
     })
 
     return {
