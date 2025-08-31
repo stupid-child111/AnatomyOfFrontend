@@ -1,5 +1,5 @@
 import ActionTypes from "./utils/ActionTypes";
-
+import isPlainObject from "./utils/isPlainObject";
 
 
 /**
