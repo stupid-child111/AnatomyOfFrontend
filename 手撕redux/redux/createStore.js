@@ -7,7 +7,17 @@ import isPlainObject from "./utils/isPlainObject";
  * @param {function} reducer 
  * @param {any} defaultState 
  */
-export default function (reducer, defaultState) {
+export default function (reducer, defaultState,enhanced) {
+    //enhanced表示applyMiddleware返回的函数
+    if(typeof defaultState === 'function'){
+        //第二个参数是应用中间件的函数返回值
+        enhanced = defaultState;
+        defaultState = undefined;
+    }
+    if(typeof enhanced === 'function'){
+        //进入applyMiddleware的处理逻辑
+        return enhanced(createStore)(reducer,defaultState);
+    }
     let currentReducer = reducer,
         currentState = defaultState
 
